@@ -3,24 +3,23 @@ import java.util.*;
 
 public class Database {
 
-    private static Scanner x;
+    private Scanner x;
 
-    private static List<String> words = new ArrayList<String>(); // create the new list
+    private List<String> words = new ArrayList<String>(); // create the new list
 
-    public static void openFile(){
-        try{
+    public void openFile() {
+        try {
             x = new Scanner(new File("/Users/Denis/IdeaProjects/HackMan/src/words.txt"));
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             System.out.println("could not get words database");
 
         }
     }
 
-    public static void readFile() { // read the file and create the word list.
+    public void readFile() { // read the file and create the word list.
 
 
-        while(x.hasNext()){ // loop until reach the end of the file
+        while (x.hasNext()) { // loop until reach the end of the file
             String w = x.next();
 
             words.add(w);
@@ -29,11 +28,11 @@ public class Database {
 //        System.out.println(words);
     }
 
-    public static void closeFile(){
+    public void closeFile() {
         x.close();
     }
 
-    public static String getWord() { // choose a random word from the array
+    public String getWord() { // choose a random word from the array
 
         String word = words.get(new Random().nextInt(words.size()));
 
@@ -42,14 +41,16 @@ public class Database {
     }
 
 
-    public static void main(String[] args) {
-        openFile();
-        readFile();
-        closeFile();
-        getWord();
-
-    }
-
+//    public static void main(String[] args) {
+//        Database d = new Database();
+//        d.openFile();
+//        d.readFile();
+//        d.closeFile();
+//        String word = d.getWord();
+//
+//        System.out.print(word);
+//    }
 
 }
+
 
